@@ -50,7 +50,7 @@ void test()
 int main(){
     Vector3f P(2.0f, 1.0f, 1.0f);
     // -45¡ã
-    float x = -45.f / 180.f * acos(-1);
+    float x = 45.f / 180.f * acos(-1);
     Matrix3f rotation45, move12;
     // Ðý×ª¾ØÕó
     rotation45 <<   cos(x), -sin(x), 0.f,
@@ -59,7 +59,7 @@ int main(){
     move12 <<   1.f, 0.f, 1.f,
                 0.f, 1.f, 2.f,
                 0.f, 0.f, 1.f;
-    Vector3f target = rotation45 * P;
+    Vector3f target = move12 * rotation45 * P;
     cout << "(" << target[0] << "," << target[1] << ")" << endl;
     return 0;
 }
